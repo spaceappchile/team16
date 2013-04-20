@@ -1,8 +1,14 @@
 WishmakerBackend::Application.routes.draw do
+  resources :gcm_devices
+
+
+  resources :apn_devices
+
+
+  resources :mobile_users
+
+
   resources :wishes
-
-
-  resources :users
 
 
   resources :meteors
@@ -58,6 +64,7 @@ WishmakerBackend::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  root :to => 'static#index'
 
   # See how all your routes lay out with "rake routes"
 

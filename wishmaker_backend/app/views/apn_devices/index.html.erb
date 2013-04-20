@@ -1,0 +1,23 @@
+<h1>Listing apn_devices</h1>
+
+<table>
+  <tr>
+    <th>Mobile user</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @apn_devices.each do |apn_device| %>
+  <tr>
+    <td><%= apn_device.mobile_user %></td>
+    <td><%= link_to 'Show', apn_device %></td>
+    <td><%= link_to 'Edit', edit_apn_device_path(apn_device) %></td>
+    <td><%= link_to 'Destroy', apn_device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Apn device', new_apn_device_path %>

@@ -1,0 +1,21 @@
+<h1>Listing mobile_users</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mobile_users.each do |mobile_user| %>
+  <tr>
+    <td><%= link_to 'Show', mobile_user %></td>
+    <td><%= link_to 'Edit', edit_mobile_user_path(mobile_user) %></td>
+    <td><%= link_to 'Destroy', mobile_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mobile user', new_mobile_user_path %>
