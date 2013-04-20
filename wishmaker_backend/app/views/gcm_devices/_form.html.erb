@@ -1,0 +1,21 @@
+<%= form_for(@gcm_device) do |f| %>
+  <% if @gcm_device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gcm_device.errors.count, "error") %> prohibited this gcm_device from being saved:</h2>
+
+      <ul>
+      <% @gcm_device.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mobile_user %><br />
+    <%= f.text_field :mobile_user %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

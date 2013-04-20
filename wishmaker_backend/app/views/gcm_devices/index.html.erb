@@ -1,0 +1,23 @@
+<h1>Listing gcm_devices</h1>
+
+<table>
+  <tr>
+    <th>Mobile user</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gcm_devices.each do |gcm_device| %>
+  <tr>
+    <td><%= gcm_device.mobile_user %></td>
+    <td><%= link_to 'Show', gcm_device %></td>
+    <td><%= link_to 'Edit', edit_gcm_device_path(gcm_device) %></td>
+    <td><%= link_to 'Destroy', gcm_device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gcm device', new_gcm_device_path %>

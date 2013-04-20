@@ -8,7 +8,7 @@ class CreateMeteors < ActiveRecord::Migration
       t.datetime :ending
       t.string :address
       t.string :photo
-      t.point :the_geom
+      t.point :the_geom, :srid => 4326, :has_z => true
 
       t.timestamps
     end

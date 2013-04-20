@@ -43,3 +43,9 @@ gem "activerecord-postgis-adapter"
 
 gem "rgeo"
 gem "rgeo-activerecord"
+
+gem "extjs-rails"
+gem "compass-rails"
+
+gem "apn_on_rails"
+gem "gcm_on_rails"
