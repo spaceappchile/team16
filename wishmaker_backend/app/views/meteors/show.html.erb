@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @meteor.title %>
+</p>
+
+<p>
+  <b>Subtitle:</b>
+  <%= @meteor.subtitle %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @meteor.description %>
+</p>
+
+<p>
+  <b>Starting:</b>
+  <%= @meteor.starting %>
+</p>
+
+<p>
+  <b>Ending:</b>
+  <%= @meteor.ending %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @meteor.address %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @meteor.photo %>
+</p>
+
+<p>
+  <b>The geom:</b>
+  <%= @meteor.the_geom %>
+</p>
+
+
+<%= link_to 'Edit', edit_meteor_path(@meteor) %> |
+<%= link_to 'Back', meteors_path %>

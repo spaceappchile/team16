@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @wish.user %>
+</p>
+
+<p>
+  <b>Meteor:</b>
+  <%= @wish.meteor %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @wish.description %>
+</p>
+
+<p>
+  <b>Made:</b>
+  <%= @wish.made %>
+</p>
+
+
+<%= link_to 'Edit', edit_wish_path(@wish) %> |
+<%= link_to 'Back', wishes_path %>

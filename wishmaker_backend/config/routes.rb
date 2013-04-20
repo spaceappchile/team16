@@ -1,4 +1,13 @@
-WishmasterBackend::Application.routes.draw do
+WishmakerBackend::Application.routes.draw do
+  resources :wishes
+
+
+  resources :users
+
+
+  resources :meteors
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

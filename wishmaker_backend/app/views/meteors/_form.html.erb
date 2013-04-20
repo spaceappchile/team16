@@ -1,0 +1,49 @@
+<%= form_for(@meteor) do |f| %>
+  <% if @meteor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@meteor.errors.count, "error") %> prohibited this meteor from being saved:</h2>
+
+      <ul>
+      <% @meteor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitle %><br />
+    <%= f.text_field :subtitle %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :starting %><br />
+    <%= f.datetime_select :starting %>
+  </div>
+  <div class="field">
+    <%= f.label :ending %><br />
+    <%= f.datetime_select :ending %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :the_geom %><br />
+    <%= f.text_field :the_geom %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

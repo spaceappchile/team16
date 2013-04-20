@@ -1,0 +1,37 @@
+<h1>Listing meteors</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Subtitle</th>
+    <th>Description</th>
+    <th>Starting</th>
+    <th>Ending</th>
+    <th>Address</th>
+    <th>Photo</th>
+    <th>The geom</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @meteors.each do |meteor| %>
+  <tr>
+    <td><%= meteor.title %></td>
+    <td><%= meteor.subtitle %></td>
+    <td><%= meteor.description %></td>
+    <td><%= meteor.starting %></td>
+    <td><%= meteor.ending %></td>
+    <td><%= meteor.address %></td>
+    <td><%= meteor.photo %></td>
+    <td><%= meteor.the_geom %></td>
+    <td><%= link_to 'Show', meteor %></td>
+    <td><%= link_to 'Edit', edit_meteor_path(meteor) %></td>
+    <td><%= link_to 'Destroy', meteor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Meteor', new_meteor_path %>
