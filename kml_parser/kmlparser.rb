@@ -17,13 +17,14 @@ doc = REXML::Document.new(xml_data)
 #
 
 registros = []
+registro = Hash.new
 
 doc.elements.each('kml/Document/Folder') do |element|
 
   if element.get_elements('name').first.to_s == "<name>Witnesses</name>"
     element.elements.each('Folder') do |wraf|
       registro = {
-        'nombre' => puts wraf.get_text('name').to_s
+	'nombre' => "#{wraf.get_text('name')}"
       }
     end
   end
