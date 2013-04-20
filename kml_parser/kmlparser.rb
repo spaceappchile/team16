@@ -6,7 +6,7 @@ xml_data = Net::HTTP.get_response(URI.parse(url)).body
 
 doc = REXML::Document.new(xml_data)
 
-doc.elements.each('kml/Document/Folder') do |ele|
+doc.elements.each('kml/Document/Folder/Folder/Folder/Placemark') do |ele|
   print ele.to_s
 end
 
