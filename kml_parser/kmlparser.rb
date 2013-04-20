@@ -20,28 +20,15 @@ registros = []
 
 doc.elements.each('kml/Document/Folder') do |element|
 
-#  if element.get_elements('name').first == "Witnesses"
-#    print "wwww"
-#  end
+  if element.get_elements('name').first.to_s == "<name>Witnesses</name>"
+    element.elements.each('Folder') do |wraf|
+      registro = {
+        'nombre' => puts wraf.get_text('name').to_s
+      }
+    end
+  end
 
-  #registro = {
-  #  'nombre' => element.get_elements('name').first.to_s
-    #'fecha'  => element.to_s
-    #'latitud' => element.to_s
-    #'longitud' => element.to_s
-    #'locacion' => element.to_s
-    #'experiencia' => element.to_s
-  #}
-
-#  registros << registro
+  registros << registro
 end
 
-print registros.to_s
-
-
-#doc.elements.each('kml/Document/Folder/Folder/Folder/Placemark') do |ele|
-#  print ele.to_s
-#end
-
-
-#puts doc
+puts registros.to_s
