@@ -125,31 +125,26 @@ ActiveRecord::Schema.define(:version => 20130420213949) do
   end
 
   create_table "mobile_users", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "users", :force => true do |t|
     t.string   "username"
-    t.string   "password"
+    t.string   "passwod"
     t.datetime "birthday"
-    t.integer  "sex"
+    t.integer  "platform"
     t.datetime "created_at",                                                        :null => false
     t.datetime "updated_at",                                                        :null => false
     t.spatial  "the_geom",   :limit => {:srid=>4326, :type=>"point", :has_z=>true}
   end
 
   create_table "wishes", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "mobile_user_id"
     t.integer  "meteor_id"
     t.text     "description"
     t.boolean  "made"
-    t.datetime "created_at",                                                         :null => false
-    t.datetime "updated_at",                                                         :null => false
-    t.spatial  "the_geom",    :limit => {:srid=>4326, :type=>"point", :has_z=>true}
+    t.datetime "created_at",                                                            :null => false
+    t.datetime "updated_at",                                                            :null => false
+    t.spatial  "the_geom",       :limit => {:srid=>4326, :type=>"point", :has_z=>true}
   end
 
   add_index "wishes", ["meteor_id"], :name => "index_wishes_on_meteor_id"
-  add_index "wishes", ["user_id"], :name => "index_wishes_on_user_id"
+  add_index "wishes", ["mobile_user_id"], :name => "index_wishes_on_mobile_user_id"
 
 end

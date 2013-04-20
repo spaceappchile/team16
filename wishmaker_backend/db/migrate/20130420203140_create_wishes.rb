@@ -9,7 +9,7 @@ class CreateWishes < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :wishes, :user_id
+    add_index :wishes, :mobile_user_id
     add_index :wishes, :meteor_id
   end
 end
