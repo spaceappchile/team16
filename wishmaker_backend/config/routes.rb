@@ -1,4 +1,7 @@
 WishmakerBackend::Application.routes.draw do
+  resources :wishes
+
+
   resources :users
 
 
