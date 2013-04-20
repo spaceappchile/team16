@@ -10,4 +10,22 @@
 
 @implementation Meteor
 
++(NSDictionary *) mapping{
+    //JSON_attribute : NSObject_attribute
+    return @{
+             @"id": @"meteor_id",
+             @"title": @"title",
+             @"subtitle": @"subtitle",
+             @"description": @"description",
+             @"starting": @"starting",
+             @"ending": @"ending",
+             @"address": @"address",
+             @"created_at": @"created_at",
+             @"updated_at": @"updated_at",
+             @"latitude" : @"latitude",
+             @"longitude" : @"longitude",
+             @"altitude" : @"altitude"
+             };
+}
+
 @end

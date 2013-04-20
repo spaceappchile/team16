@@ -10,4 +10,6 @@
 
 @interface MeteorsViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray *meteors;
+
 @end

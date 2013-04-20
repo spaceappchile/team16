@@ -7,6 +7,10 @@
 //
 
 #import "MeteorsViewController.h"
+#import "RestKit/Restkit.h"
+#import "Meteor.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface MeteorsViewController ()
 
@@ -32,6 +36,35 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //object manager singleton
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://wishmaker.5onascii.cl"]];
+    
+    //map events
+    RKObjectMapping *eventMapping = [RKObjectMapping mappingForClass:[Meteor class]];
+    [eventMapping addAttributeMappingsFromDictionary: [Meteor mapping]];
+    
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:eventMapping pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    
+    [manager addResponseDescriptor:responseDescriptor];
+    
+    
+    [manager getObjectsAtPath:@"meteors.json" parameters:nil
+                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                          NSArray* meteors = [mappingResult array];
+                          for (Meteor *meteor in meteors) {
+                              [self.meteors addObject:meteor];
+                              
+                          }
+                          [self.tableView reloadData];
+                          
+                      }
+                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                          NSLog(@"Failed with error: %@", [error localizedDescription]);
+                          
+                      }
+     ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,22 +77,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.meteors count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     // Configure the cell...
     
