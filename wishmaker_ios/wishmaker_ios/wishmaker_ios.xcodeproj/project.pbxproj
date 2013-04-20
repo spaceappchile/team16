@@ -19,6 +19,12 @@
 		1323648A17232A9900680C2B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1323648817232A9900680C2B /* MainStoryboard.storyboard */; };
 		1323649817232D0400680C2B /* Meteor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1323649717232D0400680C2B /* Meteor.m */; };
 		1323649B17232EFF00680C2B /* MeteorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1323649A17232EFF00680C2B /* MeteorsViewController.m */; };
+		1323649F17233AAA00680C2B /* MeteorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1323649E17233AAA00680C2B /* MeteorCell.m */; };
+		132364A21723403E00680C2B /* MeteorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132364A11723403E00680C2B /* MeteorViewController.m */; };
+		132364A7172342A900680C2B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132364A4172342A900680C2B /* 1.jpg */; };
+		132364A8172342A900680C2B /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132364A5172342A900680C2B /* 2.jpg */; };
+		132364A9172342A900680C2B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132364A6172342A900680C2B /* 3.jpg */; };
+		132364AB172347B200680C2B /* 1big.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132364AA172347B200680C2B /* 1big.jpg */; };
 		61E33D09EF594DB481968DC5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D00860BC90E94EAA96157E75 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +47,14 @@
 		1323649717232D0400680C2B /* Meteor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meteor.m; sourceTree = "<group>"; };
 		1323649917232EFF00680C2B /* MeteorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeteorsViewController.h; sourceTree = "<group>"; };
 		1323649A17232EFF00680C2B /* MeteorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeteorsViewController.m; sourceTree = "<group>"; };
+		1323649D17233AAA00680C2B /* MeteorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeteorCell.h; sourceTree = "<group>"; };
+		1323649E17233AAA00680C2B /* MeteorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeteorCell.m; sourceTree = "<group>"; };
+		132364A01723403E00680C2B /* MeteorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeteorViewController.h; path = ../MeteorViewController.h; sourceTree = "<group>"; };
+		132364A11723403E00680C2B /* MeteorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeteorViewController.m; path = ../MeteorViewController.m; sourceTree = "<group>"; };
+		132364A4172342A900680C2B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		132364A5172342A900680C2B /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		132364A6172342A900680C2B /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		132364AA172347B200680C2B /* 1big.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1big.jpg; sourceTree = "<group>"; };
 		5B070EAA3F4D4ED192229171 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		D00860BC90E94EAA96157E75 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +77,7 @@
 		1323646417232A9900680C2B = {
 			isa = PBXGroup;
 			children = (
+				132364A3172342A900680C2B /* images */,
 				1323647617232A9900680C2B /* wishmaker_ios */,
 				1323646F17232A9900680C2B /* Frameworks */,
 				1323646E17232A9900680C2B /* Products */,
@@ -100,6 +115,10 @@
 				1323649717232D0400680C2B /* Meteor.m */,
 				1323649917232EFF00680C2B /* MeteorsViewController.h */,
 				1323649A17232EFF00680C2B /* MeteorsViewController.m */,
+				132364A01723403E00680C2B /* MeteorViewController.h */,
+				132364A11723403E00680C2B /* MeteorViewController.m */,
+				1323649D17233AAA00680C2B /* MeteorCell.h */,
+				1323649E17233AAA00680C2B /* MeteorCell.m */,
 			);
 			path = wishmaker_ios;
 			sourceTree = "<group>";
@@ -116,6 +135,18 @@
 				1323648617232A9900680C2B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		132364A3172342A900680C2B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				132364AA172347B200680C2B /* 1big.jpg */,
+				132364A4172342A900680C2B /* 1.jpg */,
+				132364A5172342A900680C2B /* 2.jpg */,
+				132364A6172342A900680C2B /* 3.jpg */,
+			);
+			name = images;
+			path = wishmaker_ios/images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +206,10 @@
 				1323648517232A9900680C2B /* Default@2x.png in Resources */,
 				1323648717232A9900680C2B /* Default-568h@2x.png in Resources */,
 				1323648A17232A9900680C2B /* MainStoryboard.storyboard in Resources */,
+				132364A7172342A900680C2B /* 1.jpg in Resources */,
+				132364A8172342A900680C2B /* 2.jpg in Resources */,
+				132364A9172342A900680C2B /* 3.jpg in Resources */,
+				132364AB172347B200680C2B /* 1big.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +241,8 @@
 				1323648117232A9900680C2B /* AppDelegate.m in Sources */,
 				1323649817232D0400680C2B /* Meteor.m in Sources */,
 				1323649B17232EFF00680C2B /* MeteorsViewController.m in Sources */,
+				1323649F17233AAA00680C2B /* MeteorCell.m in Sources */,
+				132364A21723403E00680C2B /* MeteorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

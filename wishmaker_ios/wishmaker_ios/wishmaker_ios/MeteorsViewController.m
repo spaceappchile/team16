@@ -9,6 +9,8 @@
 #import "MeteorsViewController.h"
 #import "RestKit/Restkit.h"
 #import "Meteor.h"
+#import "MeteorCell.h"
+#import "MeteorViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 
@@ -37,6 +39,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+
+    self.meteors = [[NSMutableArray alloc] init];
+
     //object manager singleton
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://wishmaker.5onascii.cl"]];
     
@@ -90,17 +96,45 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    MeteorCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[MeteorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
+    int photonumber = indexPath.row % 3 +1;
+    NSString *imagename = [NSString stringWithFormat:@"%i.jpg", photonumber];
+    cell.image.image = [UIImage imageNamed:imagename];
+    
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.title.text = [[self.meteors objectAtIndex:indexPath.row] title];
+    cell.subtitle.text = [[self.meteors objectAtIndex:indexPath.row] subtitle];
+    cell.date.text =  [self stringFromDate:[[self.meteors objectAtIndex:indexPath.row] created_at]];
+
     
     return cell;
 }
 
+-(NSString*) stringFromDate : (NSDate *) date{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    
+    //Optionally for time zone converstions
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    
+    NSString *string = [formatter stringFromDate:date];
+    
+    return string;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MeteorViewController *detailViewController = segue.destinationViewController;
+    NSUInteger selectedRow =  self.tableView.indexPathForSelectedRow.row;
+    detailViewController.meteor = [self.meteors objectAtIndex:selectedRow];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
