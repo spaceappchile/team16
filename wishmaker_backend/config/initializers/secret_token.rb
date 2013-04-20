@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-WishmasterBackend::Application.config.secret_token = '1807cb6c825fd1e034f2442d571382399921b77769f96a67ac044c8a4d474d769f76f26c5a975741a0c447b41086d99f7172492ec0520a25dc40ebf333630856'
+WishmakerBackend::Application.config.secret_token = '2e9ae9396d3f17e88e007be9e6d030913b31e5c01cb0e69217dc3c5979f80eed6d85bb97ff4993ab2714b4747aa117accefed6741b0c822f798c3d4271badb66'

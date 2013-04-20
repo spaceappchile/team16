@@ -12,4 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require openlayers-rails
+//= require extjs-rails
+//= require_tree ./wishmaker/model
+//= require_tree ./wishmaker/store
+//= require_tree ./wishmaker/view
+//= require_tree ./wishmaker/controller
+//= require wishmaker/app

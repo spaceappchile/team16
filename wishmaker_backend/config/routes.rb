@@ -1,4 +1,19 @@
-WishmasterBackend::Application.routes.draw do
+WishmakerBackend::Application.routes.draw do
+  resources :gcm_devices
+
+
+  resources :apn_devices
+
+
+  resources :mobile_users
+
+
+  resources :wishes
+
+
+  resources :meteors
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -49,6 +64,7 @@ WishmasterBackend::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  root :to => 'static#index'
 
   # See how all your routes lay out with "rake routes"
 
