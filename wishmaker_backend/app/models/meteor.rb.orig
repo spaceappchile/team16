@@ -6,29 +6,38 @@ class Meteor < ActiveRecord::Base
 
   before_create :send_meteor
 
+<<<<<<< HEAD
 
   # Esta función tiene las siguientes responsabilidades
   # * Ir buscando los siguientes ids para insertar en la base de datos
   def self.get_new_event _id
+=======
+  def self.get_new_event 
+>>>>>>> 00b93db24776814d4b0abd659ba3a03d9de25824
     year = Time.now.year
-    url = "http://www.amsmeteors.org/members/kml/view_event_kml?event_id=#{_id}&event_year=#{year}"
+    id = (Meteor.last) ? Meteor.last.id + 1 : 1;
+    url = "http://www.amsmeteors.org/members/kml/view_event_kml?event_id=#{id}&event_year=#{year}"
     xml_data = Net::HTTP.get_response(URI.parse(url)).body
+<<<<<<< HEAD
     Report.from_kml xml_data.to_s, _id
+=======
+    puts xml_data
+    Report.from_kml xml_data, id
+>>>>>>> 00b93db24776814d4b0abd659ba3a03d9de25824
   end
 
   def send_meteor
 
     # MobileUser.all.each do |mobile_user|
       # mobile_user.apn_devices.each do |apn_device|
-      APN::Device.all.each do |apn_device|
-        # logger.debug apn_device
-        # APN::Notification.delete apn_device.notifications
-        # n = APN::Notification.new
-        # n.device_id = apn_device.id
-        # n.alert = 'A meteor has just passed, would you like to ask for a wish?'
-        # n.save
+      ApnDevice.all.each do |apn_device|
+        logger.debug apn_device
+        n = APN::Notification.new
+        n.device_id = apn_device.id
+        n.alert = 'A meteor has just passed, would you like to ask for a wish?'
+        n.save
       end
-      # APN::App.send_notifications    # end
+      APN::App.send_notifications    # end
   end
 
 end
