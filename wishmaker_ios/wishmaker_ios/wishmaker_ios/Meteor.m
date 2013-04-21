@@ -10,6 +10,7 @@
 
 @implementation Meteor
 
+
 +(NSDictionary *) mapping{
     //JSON_attribute : NSObject_attribute
     return @{

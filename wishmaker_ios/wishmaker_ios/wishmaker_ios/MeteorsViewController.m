@@ -108,7 +108,7 @@
     
     cell.backgroundColor = [UIColor whiteColor];
     cell.title.text = [[self.meteors objectAtIndex:indexPath.row] title];
-    cell.subtitle.text = [[self.meteors objectAtIndex:indexPath.row] subtitle];
+    cell.subtitle.text = [[self.meteors objectAtIndex:indexPath.row] address];
     cell.date.text =  [self stringFromDate:[[self.meteors objectAtIndex:indexPath.row] created_at]];
 
     

@@ -74,35 +74,34 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     //token recibido, registrar en backend.
-    NSString * tokenAsString = [[deviceToken description]
-                                stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    NSString * tokenAsString = [[[deviceToken description]
+                                stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     NSLog(@"My token is: %@", tokenAsString);
     
-    NSDictionary *params = @{@"token": tokenAsString};
+//    NSDictionary *params = @{@"token": tokenAsString};
     
-    NSURL *url = [NSURL URLWithString:[WEBSERVER stringByAppendingString:@"/apn_devices/register.json"]];
     
     RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[ApnDevice class]];
     [responseMapping addAttributeMappingsFromDictionary:[ApnDevice mapping]];
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
 
-    RKResponseDescriptor *apnDeviceDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping pathPattern:@"/articles" keyPath:@"article" statusCodes:statusCodes];
+    RKResponseDescriptor *apnDeviceDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping pathPattern:@"/apn_devices.json" keyPath:nil statusCodes:statusCodes];
     
     RKObjectMapping *requestMapping = [RKObjectMapping requestMapping]; // objectClass == NSMutableDictionary
-    [requestMapping addAttributeMappingsFromArray:@[@"title", @"author", @"body"]];
+    [requestMapping addAttributeMappingsFromDictionary:[ApnDevice mapping]];
     
-    // For any object of class Article, serialize into an NSMutableDictionary using the given mapping and nest
-    // under the 'article' key path
     RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[ApnDevice class] rootKeyPath:@"apn_device"];
     
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:WEBSERVER]];
-                                
-    ApnDevice *apn_device = [ApnDevice new];
+    [manager addRequestDescriptor:requestDescriptor];
+    [manager addResponseDescriptor:apnDeviceDescriptor];
+    
+    ApnDevice *apn_device = [[ApnDevice alloc] init];
     apn_device.token = tokenAsString;
     
     // POST to create
-    [manager postObject:apn_device path:@"/apn_devices" parameters:nil success:nil failure:nil];
+    [manager postObject:apn_device path:@"/apn_devices.json" parameters:nil success:nil failure:nil];
     
 }
 
