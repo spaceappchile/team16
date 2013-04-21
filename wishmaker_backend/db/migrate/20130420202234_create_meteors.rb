@@ -3,6 +3,7 @@ class CreateMeteors < ActiveRecord::Migration
     create_table :meteors do |t|
       t.string :title
       t.string :subtitle
+      t.stirng :hashtag
       t.text :description
       t.datetime :starting
       t.datetime :ending

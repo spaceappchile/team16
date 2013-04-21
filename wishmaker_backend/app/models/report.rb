@@ -30,7 +30,7 @@ class Report < ActiveRecord::Base
         location = snippet.split[3..snippet.length].join(" ")
         caordinates = placemark['Point']['coordinates'] # {"coordinates"=>"-114.53091929696,35.142340873613,0"
         created_at = placemark['description'].match(reg).to_s.to_datetime    
-        meteor = Meteor.create if not meteor
+        meteor = Meteor.create :title => event_name if not meteor
         Report.create :name => event_name, :experience => experience, :witness => witness, :meteor_id => meteor.id
       end
     end
