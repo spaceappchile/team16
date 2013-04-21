@@ -5,7 +5,7 @@ common: &common
   username: postgres
   password: admin
   schema_search_path: "public,postgis"
-  script_dir: /Library/PostgreSQL/9.0/share/postgresql/contrib/postgis-1.5/
+  script_dir: /Library/PostgreSQL/9.1/share/postgresql/contrib/postgis-1.5/
   port: 5432
   host: localhost
   postgis_extension: true
