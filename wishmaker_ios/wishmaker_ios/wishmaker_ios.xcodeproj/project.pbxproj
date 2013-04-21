@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1310E5A41723862D0021A809 /* MobileUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1310E5A31723862D0021A809 /* MobileUser.m */; };
+		1310E5A7172388730021A809 /* ApnDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1310E5A6172388730021A809 /* ApnDevice.m */; };
 		1323647117232A9900680C2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1323647017232A9900680C2B /* UIKit.framework */; };
 		1323647317232A9900680C2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1323647217232A9900680C2B /* Foundation.framework */; };
 		1323647517232A9900680C2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1323647417232A9900680C2B /* CoreGraphics.framework */; };
@@ -25,10 +27,22 @@
 		132364A8172342A900680C2B /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132364A5172342A900680C2B /* 2.jpg */; };
 		132364A9172342A900680C2B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132364A6172342A900680C2B /* 3.jpg */; };
 		132364AB172347B200680C2B /* 1big.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132364AA172347B200680C2B /* 1big.jpg */; };
+		132364AE1723596400680C2B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132364AD1723596400680C2B /* Social.framework */; };
+		137F8CB517235FBB00AABE41 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 137F8CAF17235FBB00AABE41 /* facebook.png */; };
+		137F8CB617235FBB00AABE41 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137F8CB017235FBB00AABE41 /* facebook@2x.png */; };
+		137F8CB717235FBB00AABE41 /* fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 137F8CB117235FBB00AABE41 /* fail.png */; };
+		137F8CB817235FBB00AABE41 /* fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137F8CB217235FBB00AABE41 /* fail@2x.png */; };
+		137F8CB917235FBB00AABE41 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 137F8CB317235FBB00AABE41 /* twitter.png */; };
+		137F8CBA17235FBB00AABE41 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137F8CB417235FBB00AABE41 /* twitter@2x.png */; };
+		137F8CBD172363C100AABE41 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137F8CBC172363C100AABE41 /* QuartzCore.framework */; };
 		61E33D09EF594DB481968DC5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D00860BC90E94EAA96157E75 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1310E5A21723862D0021A809 /* MobileUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileUser.h; sourceTree = "<group>"; };
+		1310E5A31723862D0021A809 /* MobileUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileUser.m; sourceTree = "<group>"; };
+		1310E5A5172388730021A809 /* ApnDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnDevice.h; sourceTree = "<group>"; };
+		1310E5A6172388730021A809 /* ApnDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnDevice.m; sourceTree = "<group>"; };
 		1323646D17232A9900680C2B /* wishmaker_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wishmaker_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1323647017232A9900680C2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1323647217232A9900680C2B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,6 +69,14 @@
 		132364A5172342A900680C2B /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		132364A6172342A900680C2B /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		132364AA172347B200680C2B /* 1big.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1big.jpg; sourceTree = "<group>"; };
+		132364AD1723596400680C2B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		137F8CAF17235FBB00AABE41 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		137F8CB017235FBB00AABE41 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		137F8CB117235FBB00AABE41 /* fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fail.png; sourceTree = "<group>"; };
+		137F8CB217235FBB00AABE41 /* fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fail@2x.png"; sourceTree = "<group>"; };
+		137F8CB317235FBB00AABE41 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		137F8CB417235FBB00AABE41 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
+		137F8CBC172363C100AABE41 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5B070EAA3F4D4ED192229171 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		D00860BC90E94EAA96157E75 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -64,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137F8CBD172363C100AABE41 /* QuartzCore.framework in Frameworks */,
+				132364AE1723596400680C2B /* Social.framework in Frameworks */,
 				1323647117232A9900680C2B /* UIKit.framework in Frameworks */,
 				1323647317232A9900680C2B /* Foundation.framework in Frameworks */,
 				1323647517232A9900680C2B /* CoreGraphics.framework in Frameworks */,
@@ -96,6 +120,8 @@
 		1323646F17232A9900680C2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				137F8CBC172363C100AABE41 /* QuartzCore.framework */,
+				132364AD1723596400680C2B /* Social.framework */,
 				1323647017232A9900680C2B /* UIKit.framework */,
 				1323647217232A9900680C2B /* Foundation.framework */,
 				1323647417232A9900680C2B /* CoreGraphics.framework */,
@@ -113,12 +139,16 @@
 				1323647717232A9900680C2B /* Supporting Files */,
 				1323649617232D0400680C2B /* Meteor.h */,
 				1323649717232D0400680C2B /* Meteor.m */,
+				1310E5A21723862D0021A809 /* MobileUser.h */,
+				1310E5A31723862D0021A809 /* MobileUser.m */,
 				1323649917232EFF00680C2B /* MeteorsViewController.h */,
 				1323649A17232EFF00680C2B /* MeteorsViewController.m */,
 				132364A01723403E00680C2B /* MeteorViewController.h */,
 				132364A11723403E00680C2B /* MeteorViewController.m */,
 				1323649D17233AAA00680C2B /* MeteorCell.h */,
 				1323649E17233AAA00680C2B /* MeteorCell.m */,
+				1310E5A5172388730021A809 /* ApnDevice.h */,
+				1310E5A6172388730021A809 /* ApnDevice.m */,
 			);
 			path = wishmaker_ios;
 			sourceTree = "<group>";
@@ -140,6 +170,12 @@
 		132364A3172342A900680C2B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				137F8CAF17235FBB00AABE41 /* facebook.png */,
+				137F8CB017235FBB00AABE41 /* facebook@2x.png */,
+				137F8CB117235FBB00AABE41 /* fail.png */,
+				137F8CB217235FBB00AABE41 /* fail@2x.png */,
+				137F8CB317235FBB00AABE41 /* twitter.png */,
+				137F8CB417235FBB00AABE41 /* twitter@2x.png */,
 				132364AA172347B200680C2B /* 1big.jpg */,
 				132364A4172342A900680C2B /* 1.jpg */,
 				132364A5172342A900680C2B /* 2.jpg */,
@@ -210,6 +246,12 @@
 				132364A8172342A900680C2B /* 2.jpg in Resources */,
 				132364A9172342A900680C2B /* 3.jpg in Resources */,
 				132364AB172347B200680C2B /* 1big.jpg in Resources */,
+				137F8CB517235FBB00AABE41 /* facebook.png in Resources */,
+				137F8CB617235FBB00AABE41 /* facebook@2x.png in Resources */,
+				137F8CB717235FBB00AABE41 /* fail.png in Resources */,
+				137F8CB817235FBB00AABE41 /* fail@2x.png in Resources */,
+				137F8CB917235FBB00AABE41 /* twitter.png in Resources */,
+				137F8CBA17235FBB00AABE41 /* twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +285,8 @@
 				1323649B17232EFF00680C2B /* MeteorsViewController.m in Sources */,
 				1323649F17233AAA00680C2B /* MeteorCell.m in Sources */,
 				132364A21723403E00680C2B /* MeteorViewController.m in Sources */,
+				1310E5A41723862D0021A809 /* MobileUser.m in Sources */,
+				1310E5A7172388730021A809 /* ApnDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,10 +372,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B070EAA3F4D4ED192229171 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Javier Giovannini Campos (6467FUE22R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wishmaker_ios/wishmaker_ios-Prefix.pch";
 				INFOPLIST_FILE = "wishmaker_ios/wishmaker_ios-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "09A31CBB-76C7-4CAF-A068-D2F4DEFF56FE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -340,10 +386,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B070EAA3F4D4ED192229171 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Javier Giovannini Campos (6467FUE22R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wishmaker_ios/wishmaker_ios-Prefix.pch";
 				INFOPLIST_FILE = "wishmaker_ios/wishmaker_ios-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "09A31CBB-76C7-4CAF-A068-D2F4DEFF56FE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
