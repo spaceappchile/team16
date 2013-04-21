@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420213949) do
+ActiveRecord::Schema.define(:version => 20130420234719) do
 
   create_table "apn_apps", :force => true do |t|
     t.text     "apn_dev_cert"
@@ -133,6 +133,19 @@ ActiveRecord::Schema.define(:version => 20130420213949) do
     t.datetime "updated_at",                                                        :null => false
     t.spatial  "the_geom",   :limit => {:srid=>4326, :type=>"point", :has_z=>true}
   end
+
+  create_table "reports", :force => true do |t|
+    t.string   "name"
+    t.integer  "experience"
+    t.string   "location"
+    t.string   "witness"
+    t.integer  "meteor_id"
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+    t.spatial  "the_geom",   :limit => {:srid=>-1, :type=>"point"}
+  end
+
+  add_index "reports", ["meteor_id"], :name => "index_reports_on_meteor_id"
 
   create_table "wishes", :force => true do |t|
     t.integer  "mobile_user_id"
