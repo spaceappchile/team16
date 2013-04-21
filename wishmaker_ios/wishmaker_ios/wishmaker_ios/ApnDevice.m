@@ -13,7 +13,6 @@
 +(NSDictionary *) mapping{
     //JSON_attribute : NSObject_attribute
     return @{
-             @"id": @"apn_device_id",
              @"app_id": @"app_id",
              @"mobile_user_id": @"mobile_user_id",
              @"token" : @"token",

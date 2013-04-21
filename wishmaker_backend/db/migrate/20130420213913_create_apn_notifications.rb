@@ -14,6 +14,7 @@ class CreateApnNotifications < ActiveRecord::Migration # :nodoc:
     end
     
     add_index :apn_notifications, :device_id
+
   end
 
   def self.down

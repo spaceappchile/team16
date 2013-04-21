@@ -15,6 +15,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
+        [self.disclosureButton setType:BButtonTypeDefault];
+        
+        [self.disclosureButton addAwesomeIcon:FAIconChevronRight beforeTitle:FALSE];
     }
     return self;
 }
