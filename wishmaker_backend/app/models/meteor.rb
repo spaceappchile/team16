@@ -7,13 +7,24 @@ class Meteor < ActiveRecord::Base
 
   before_create :send_meteor
 
-  def self.get_new_event 
+
+  # Esta función tiene las siguientes responsabilidades
+  # * Ir buscando los siguientes ids para insertar en la base de datos
+  def self.get_new_event _id = 1
+    if Meteor.first and _id < Meteor.first.id
+      _id = Meteor.first.id + 1
+    end
+    puts _id
+
     year = Time.now.year
-    id = (Meteor.last) ? Meteor.last.id + 1 : 1;
-    url = "http://www.amsmeteors.org/members/kml/view_event_kml?event_id=#{id}&event_year=#{year}"
+    url = "http://www.amsmeteors.org/members/kml/view_event_kml?event_id=#{_id}&event_year=#{year}"
     xml_data = Net::HTTP.get_response(URI.parse(url)).body
-    puts xml_data
-    Report.from_kml xml_data, id
+
+    begin
+      Report.from_kml xml_data.to_s, _id
+    rescue
+      Meteor.get_new_event _id+1;
+    end
   end
 
   def send_meteor

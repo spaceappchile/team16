@@ -90,6 +90,9 @@ Ext.define('wishmaker.view.Meteor.List', {
 			]
 		}];
 
+		setInterval(function(){
+			Ext.StoreManager.get("Meteors").load();
+		}, 5000);	
 
 		this.callParent(arguments);
 	}  
