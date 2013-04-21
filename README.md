@@ -32,6 +32,8 @@ Screenshots de la app en iPhone
 ![My image](images/img4.png)
 ![My image](images/img5.png)
 
+Screenshots de la app en Android
 
+![My image](images/img6.png)
 
 
