@@ -9,6 +9,11 @@ class Report < ActiveRecord::Base
     event_name = hash['kml']['Document']['name']
 
     hash = Hash.from_xml kml
+    
+  
+    
+    
+    
     hash['kml']['Document']['Folder'][0]['Folder'].each do |folder|
       experience = folder['name'].match(/\d{1,}/).to_s
       ## Ahora vienen los reportes!!!
@@ -23,8 +28,11 @@ class Report < ActiveRecord::Base
         caordinates = placemark['Point']['coordinates'] # {"coordinates"=>"-114.53091929696,35.142340873613,0"
         created_at = placemark['description'].match(reg).to_s.to_datetime    
         
-        Report.create :name => event_name, :experience => experience, :witness => witness
-
+        if experience.empty?
+          return false
+        else
+          Report.create :name => event_name, :experience => experience, :witness => witness
+        end
       end
     end
   end

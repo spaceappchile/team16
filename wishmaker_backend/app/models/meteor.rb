@@ -7,7 +7,7 @@ class Meteor < ActiveRecord::Base
 
   def self.get_new_event 
     year = Time.now.year
-    id = Meteor.last.id
+    id = Meteor.last.id + 1
     url = "http://www.amsmeteors.org/members/kml/view_event_kml?event_id=#{id}&event_year=#{year}"
     xml_data = Net::HTTP.get_response(URI.parse(url)).body
     Report.from_kml xml_data
