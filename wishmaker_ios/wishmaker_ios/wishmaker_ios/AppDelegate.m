@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ApnDevice.h"
 
 @implementation AppDelegate
 
@@ -81,25 +82,27 @@
     NSDictionary *params = @{@"token": tokenAsString};
     
     NSURL *url = [NSURL URLWithString:[WEBSERVER stringByAppendingString:@"/apn_devices/register.json"]];
-//    
-//    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
-//        NSDictionary *dict = (NSDictionary *)[DataStore RESTtoURL:url withMethod:@"POST" andArguments:params];
-//        dispatch_sync(dispatch_get_main_queue(), ^{
-//            if ([dict count]>0) {
-//                self.user.user_id = [dict objectForKey:@"mobile_user_id"];
-//                self.user.device_id = [dict objectForKey:@"id"];
-//                NSDateFormatter *dateFormatter = NSDateFormatter.alloc.init;
-//                [dateFormatter setTimeZone:NSTimeZone.localTimeZone];
-//                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-//                self.user.sex = [[dict objectForKey:@"mobile_user"] objectForKey:@"sex"];
-//                self.user.birthday  = [dateFormatter dateFromString:[[dict objectForKey:@"mobile_user"] objectForKey:@"birthday"] ];
-//                self.user.notificationEnabled = [NSNumber numberWithBool:(BOOL)[[dict objectForKey:@"mobile_user"] objectForKey:@"notificationEnabled"]];
-//                [self.dataStore saveContext];
-//            }
-//            
-//        });
-//    });
+    
+    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[ApnDevice class]];
+    [responseMapping addAttributeMappingsFromDictionary:[ApnDevice mapping]];
+    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+
+    RKResponseDescriptor *apnDeviceDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping pathPattern:@"/articles" keyPath:@"article" statusCodes:statusCodes];
+    
+    RKObjectMapping *requestMapping = [RKObjectMapping requestMapping]; // objectClass == NSMutableDictionary
+    [requestMapping addAttributeMappingsFromArray:@[@"title", @"author", @"body"]];
+    
+    // For any object of class Article, serialize into an NSMutableDictionary using the given mapping and nest
+    // under the 'article' key path
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[ApnDevice class] rootKeyPath:@"apn_device"];
+    
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:WEBSERVER]];
+                                
+    ApnDevice *apn_device = [ApnDevice new];
+    apn_device.token = tokenAsString;
+    
+    // POST to create
+    [manager postObject:apn_device path:@"/apn_devices" parameters:nil success:nil failure:nil];
     
 }
 
