@@ -3,11 +3,8 @@ class ApnDevice < ActiveRecord::Base
   belongs_to :mobile_user
   attr_accessible :title, :body, :token
 
-  before_create :check
 end
 
-def :check
-	
-end
+
 
 

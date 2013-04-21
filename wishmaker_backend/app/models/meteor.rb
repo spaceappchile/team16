@@ -20,15 +20,14 @@ class Meteor < ActiveRecord::Base
 
     # MobileUser.all.each do |mobile_user|
       # mobile_user.apn_devices.each do |apn_device|
-      MobileUser.all.each do |apn_device|
+      ApnDevice.all.each do |apn_device|
         logger.debug apn_device
         n = APN::Notification.new
         n.device_id = apn_device.id
         n.alert = 'A meteor has just passed, would you like to ask for a wish?'
         n.save
       end
-      APN::Notification.send_notifications
-    # end
+      APN::App.send_notifications    # end
   end
 
 end

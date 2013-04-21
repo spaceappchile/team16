@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130420234719) do
   create_table "meteors", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
+    t.string   "hashtag"
     t.text     "description"
     t.datetime "starting"
     t.datetime "ending"
