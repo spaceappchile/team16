@@ -25,7 +25,7 @@ public class MeteorDescriptionFragment extends SherlockFragment {
 		subtitle.setText(meteorObject.getSubtitle());
 		hashtag.setText(meteorObject.getHashtag());
 		address.setText(meteorObject.getAddress());
-		
+	
 	}
 
 }

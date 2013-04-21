@@ -2,7 +2,6 @@ class Report < ActiveRecord::Base
   belongs_to :meteor
   attr_accessible :experience, :location, :name, :the_geom, :witness, :meteor_id
 
-
   def self.from_kml kml, meteor_id
     hash = Hash.from_xml kml
     reg = /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/

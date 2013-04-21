@@ -32,9 +32,9 @@ public final class MeteorDescriptionFragment_
 
     private void afterSetContentView_() {
         address = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.address));
-        hashtag = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.hashtag));
-        title = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.title));
         subtitle = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.subtitle));
+        title = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.title));
+        hashtag = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.hashtag));
         hidrateLayout();
     }
 

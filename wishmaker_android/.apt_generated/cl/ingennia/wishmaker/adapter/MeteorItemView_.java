@@ -7,7 +7,9 @@ package cl.ingennia.wishmaker.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.widget.TextView;
+import cl.ingennia.wishmaker.R.drawable;
 import cl.ingennia.wishmaker.R.id;
 import cl.ingennia.wishmaker.R.layout;
 
@@ -37,6 +39,8 @@ public final class MeteorItemView_
         if (context_ instanceof Activity) {
             Activity activity = ((Activity) context_);
         }
+        Resources resources_ = context_.getResources();
+        small1 = resources_.getDrawable(drawable.small1);
     }
 
     private void afterSetContentView_() {
