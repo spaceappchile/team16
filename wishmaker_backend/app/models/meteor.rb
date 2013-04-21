@@ -11,7 +11,6 @@ class Meteor < ActiveRecord::Base
     id = (Meteor.last) ? Meteor.last.id + 1 : 1;
     url = "http://www.amsmeteors.org/members/kml/view_event_kml?event_id=#{id}&event_year=#{year}"
     xml_data = Net::HTTP.get_response(URI.parse(url)).body
-    puts xml_data
     Report.from_kml xml_data, id
   end
 
@@ -19,8 +18,9 @@ class Meteor < ActiveRecord::Base
 
     # MobileUser.all.each do |mobile_user|
       # mobile_user.apn_devices.each do |apn_device|
-      ApnDevice.all.each do |apn_device|
+      APN::Device.all.each do |apn_device|
         logger.debug apn_device
+        APN::Notification.delete apn_device.notifications
         n = APN::Notification.new
         n.device_id = apn_device.id
         n.alert = 'A meteor has just passed, would you like to ask for a wish?'

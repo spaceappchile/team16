@@ -39,6 +39,8 @@
     RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 
     self.meteors = [[NSMutableArray alloc] init];
+    
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(handleNotification:) name:@"MyNotification" object:nil];
 
     //object manager singleton
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:WEBSERVER]];
@@ -68,6 +70,29 @@
                           
                       }
      ];
+}
+
+-(void)handleNotification:(NSNotification *)notification
+{
+    NSDictionary *object = notification.object;
+    
+        NSString *message = [[object valueForKey:@"aps"] valueForKey:@"alert"];
+        NSLog(@"message string: %@", message);
+//    NSNumber *store_id = [object valueForKey:@"store_id"];
+//    NSLog(@"id received: %@", store_id);
+//    NSString *title = [object valueForKey:@"title"];
+//    NSString *message = [object valueForKey:@"description_brief"];
+    
+    UIAlertView *notificationAlert = [[UIAlertView alloc]
+                              initWithTitle:@"Ask for a wish"
+                              message:message
+                              delegate:self
+                              cancelButtonTitle:@"Ver"
+                              otherButtonTitles: @"OK", nil];
+    
+    [notificationAlert show];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
