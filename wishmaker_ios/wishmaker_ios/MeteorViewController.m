@@ -37,6 +37,7 @@
 
     self.title = self.meteor.title;
     self.subtitle.text = [self stringFromDate:self.meteor.created_at];
+    self.address.text = self.meteor.address;
     self.description.text = self.meteor.description;
     NSString *imagename = [NSString stringWithFormat:@"big%i.jpg", self.index%6+1];
     self.photo.image = [UIImage imageNamed:imagename];
