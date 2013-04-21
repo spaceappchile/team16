@@ -1,13 +1,9 @@
 # Please put here your AMSMETEOR PARSER into a new Thread
 
-Meteor.create :title => "initializer"
 
-
-
-Thread.new do
+Thread.new{
   while true
-    kml = Meteor.get_new_event
-    Report.from_kml kml
+    Meteor.get_new_event
     sleep(60.0)
   end
-end
+}
