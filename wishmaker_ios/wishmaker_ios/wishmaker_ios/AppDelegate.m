@@ -13,6 +13,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     return YES;
 }
 							
@@ -41,6 +46,92 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSString *json = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:userInfo options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"json: %@", json);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MyNotification" object:userInfo];
+    
+    
+    if ( application.applicationState == UIApplicationStateActive ){
+        NSLog(@"app was already in the foreground");
+        //add an item to notifications, update badge
+        
+        
+    }
+    else{
+        NSLog(@"app was just brought from background to foreground");
+        
+    }
+}
+
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    //token recibido, registrar en backend.
+    NSString * tokenAsString = [[deviceToken description]
+                                stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    
+    NSLog(@"My token is: %@", tokenAsString);
+    
+    NSDictionary *params = @{@"token": tokenAsString};
+    
+    NSURL *url = [NSURL URLWithString:[WEBSERVER stringByAppendingString:@"/apn_devices/register.json"]];
+//    
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
+//        NSDictionary *dict = (NSDictionary *)[DataStore RESTtoURL:url withMethod:@"POST" andArguments:params];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            if ([dict count]>0) {
+//                self.user.user_id = [dict objectForKey:@"mobile_user_id"];
+//                self.user.device_id = [dict objectForKey:@"id"];
+//                NSDateFormatter *dateFormatter = NSDateFormatter.alloc.init;
+//                [dateFormatter setTimeZone:NSTimeZone.localTimeZone];
+//                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+//                self.user.sex = [[dict objectForKey:@"mobile_user"] objectForKey:@"sex"];
+//                self.user.birthday  = [dateFormatter dateFromString:[[dict objectForKey:@"mobile_user"] objectForKey:@"birthday"] ];
+//                self.user.notificationEnabled = [NSNumber numberWithBool:(BOOL)[[dict objectForKey:@"mobile_user"] objectForKey:@"notificationEnabled"]];
+//                [self.dataStore saveContext];
+//            }
+//            
+//        });
+//    });
+    
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+    //NSDictionary *params = @{@"token": tokenAsString};
+    NSLog(@"didFailToRegisterForRemoteNotificationsWithError");
+//    NSLog(@"user id %@", self.user.user_id);
+//    
+//    if (!self.user.user_id|| [self.user.user_id isEqualToNumber:@0]) {
+//        NSLog(@"the user was empty, need to ask for a user_id without device_id");
+//        NSURL *url = [NSURL URLWithString:[WEBSERVER stringByAppendingString:@"/mobile_users.json"]];
+//        
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
+//            NSDictionary *dict = (NSDictionary *)[DataStore RESTtoURL:url withMethod:@"POST"];
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//                if ([dict count]>0) {
+//                    self.user.user_id = [dict objectForKey:@"id"];
+//                    NSDateFormatter *dateFormatter = NSDateFormatter.alloc.init;
+//                    [dateFormatter setTimeZone:NSTimeZone.localTimeZone];
+//                    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+//                    self.user.sex = [dict objectForKey:@"sex"];
+//                    self.user.birthday  = [dateFormatter dateFromString:[dict objectForKey:@"birthday"] ];
+//                    self.user.notificationEnabled = [NSNumber numberWithBool:(BOOL)[dict objectForKey:@"notificationEnabled"]];
+//                    [self.dataStore saveContext];
+//                    
+//                }
+//                
+//            });
+//        });
+//    }
+    
 }
 
 @end

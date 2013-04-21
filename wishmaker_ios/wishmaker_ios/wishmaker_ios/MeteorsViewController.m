@@ -7,12 +7,9 @@
 //
 
 #import "MeteorsViewController.h"
-#import "RestKit/Restkit.h"
 #import "Meteor.h"
 #import "MeteorCell.h"
 #import "MeteorViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-
 
 @interface MeteorsViewController ()
 
@@ -44,7 +41,7 @@
     self.meteors = [[NSMutableArray alloc] init];
 
     //object manager singleton
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://wishmaker.5onascii.cl"]];
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:WEBSERVER]];
     
     //map events
     RKObjectMapping *eventMapping = [RKObjectMapping mappingForClass:[Meteor class]];
@@ -106,6 +103,8 @@
     int photonumber = indexPath.row % 3 +1;
     NSString *imagename = [NSString stringWithFormat:@"%i.jpg", photonumber];
     cell.image.image = [UIImage imageNamed:imagename];
+    cell.image.layer.cornerRadius = 10;
+    cell.image.clipsToBounds = YES;
     
     cell.backgroundColor = [UIColor whiteColor];
     cell.title.text = [[self.meteors objectAtIndex:indexPath.row] title];

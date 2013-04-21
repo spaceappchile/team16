@@ -7,8 +7,12 @@
 //
 
 #import "MeteorViewController.h"
+#import "MBProgressHUD.h"
+#import <Social/Social.h>
 
 @interface MeteorViewController ()
+
+@property (nonatomic, strong) MBProgressHUD *HUD;
 
 @end
 
@@ -37,6 +41,45 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)facebookButtonPressed:(id)sender {
+    [self shareWith:@"facebook"];
+    
+}
+- (IBAction)twitterButtonPressed:(id)sender {
+    [self shareWith:@"twitter"];
+}
+
+-(void)shareWith:(NSString*)socialNetwork{
+    
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:self.HUD];
+    
+    NSString *SLServiceType;
+    if ([socialNetwork isEqualToString:@"twitter"]) {
+        SLServiceType = SLServiceTypeTwitter;
+    }
+    else if ([socialNetwork isEqualToString:@"facebook"]){
+        SLServiceType = SLServiceTypeFacebook;
+    }
+    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceType]) {
+        
+        SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceType];
+        [slComposeViewController addURL:[NSURL URLWithString:@"http://www.spotterr.cl" ]];
+        [slComposeViewController setInitialText:[NSString stringWithFormat:@"He pedido un deseo al meteorito %@, visto en %@", self.meteor.title, self.meteor.address]];
+        [self presentViewController:slComposeViewController animated:YES completion:nil];
+    }
+    else{
+        self.HUD.mode = MBProgressHUDModeCustomView;
+        self.HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fail.png"]] ;
+        self.HUD.labelText = [socialNetwork capitalizedString];
+        self.HUD.detailsLabelText = NSLocalizedString(@"The service has not been set", @"Displayed when the service has not been setted in the device");
+        [self.HUD show:YES];
+        [self.HUD hide:YES afterDelay:2];
+    }
 }
 
 -(NSString*) stringFromDate : (NSDate *) date{
