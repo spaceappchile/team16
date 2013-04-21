@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import cl.ingennia.wishmaker.R.layout;
 import cl.ingennia.wishmaker.domain.Meteor;
@@ -33,6 +34,7 @@ public final class MeteorDescriptionFragment_
     private void afterSetContentView_() {
         address = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.address));
         hashtag = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.hashtag));
+        twitter = ((Button) findViewById(cl.ingennia.wishmaker.R.id.twitter));
         title = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.title));
         subtitle = ((TextView) findViewById(cl.ingennia.wishmaker.R.id.subtitle));
         hidrateLayout();

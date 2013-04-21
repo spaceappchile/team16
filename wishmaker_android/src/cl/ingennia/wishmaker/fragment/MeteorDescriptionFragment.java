@@ -1,5 +1,6 @@
 package cl.ingennia.wishmaker.fragment;
 
+import android.widget.Button;
 import android.widget.TextView;
 import cl.ingennia.wishmaker.R;
 import cl.ingennia.wishmaker.domain.Meteor;
@@ -16,6 +17,9 @@ public class MeteorDescriptionFragment extends SherlockFragment {
 	@ViewById
 	TextView title, subtitle, hashtag, address;
 	
+	@ViewById
+	Button twitter;
+	
 	@FragmentArg("meteor")
 	Meteor meteorObject;
 	
@@ -25,7 +29,7 @@ public class MeteorDescriptionFragment extends SherlockFragment {
 		subtitle.setText(meteorObject.getSubtitle());
 		hashtag.setText(meteorObject.getHashtag());
 		address.setText(meteorObject.getAddress());
-		
+	
 	}
 
 }

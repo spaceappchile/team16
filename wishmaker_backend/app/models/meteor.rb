@@ -15,7 +15,6 @@ class Meteor < ActiveRecord::Base
     Report.from_kml xml_data, id
   end
 
-
   def send_meteor
 
     # MobileUser.all.each do |mobile_user|

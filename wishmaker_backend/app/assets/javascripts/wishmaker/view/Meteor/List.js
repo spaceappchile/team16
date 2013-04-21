@@ -23,6 +23,11 @@ Ext.define('wishmaker.view.Meteor.List', {
 			// flex: 1
 		}, 
 		{
+			header: 'Hashtag',
+			dataIndex: 'hashtag'
+			// flex: 1
+		}, 
+		{
 			header: 'Description',
 			dataIndex: 'description'
 			// flex: 1
@@ -85,6 +90,9 @@ Ext.define('wishmaker.view.Meteor.List', {
 			]
 		}];
 
+		setInterval(function(){
+			Ext.StoreManager.get("Meteors").load();
+		}, 5000);	
 
 		this.callParent(arguments);
 	}  

@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.FrameLayout;
+import cl.ingennia.wishmaker.R.id;
 import cl.ingennia.wishmaker.R.layout;
 import cl.ingennia.wishmaker.domain.Meteor;
 import com.googlecode.androidannotations.api.SdkVersionHelper;
@@ -35,6 +37,7 @@ public final class MeteorActivity_
     }
 
     private void afterSetContentView_() {
+        meteor_photo = ((FrameLayout) findViewById(id.meteor_photo));
         initLayout();
     }
 

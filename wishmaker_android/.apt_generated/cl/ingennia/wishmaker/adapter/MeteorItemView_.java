@@ -54,7 +54,7 @@ public final class MeteorItemView_
     public void onFinishInflate() {
         if (!mAlreadyInflated_) {
             mAlreadyInflated_ = true;
-            inflate(getContext(), layout.item_meteor, this);
+            inflate(getContext(), layout.item_meteorview, this);
             afterSetContentView_();
         }
         super.onFinishInflate();

@@ -1,7 +1,7 @@
 class Report < ActiveRecord::Base
+  set_rgeo_factory_for_column(:the_geom, RGeo::Geographic.spherical_factory(:srid => 4326))
   belongs_to :meteor
-  attr_accessible :experience, :location, :name, :the_geom, :witness, :meteor_id
-
+  attr_accessible :experience, :location, :name, :the_geom, :witness, :meteor_id, :hashtag
 
   def self.from_kml kml, meteor_id
     hash = Hash.from_xml kml
@@ -25,12 +25,20 @@ class Report < ActiveRecord::Base
       end
 
       folder['Placemark'].each do |placemark|
-        witness = placemark['name'] # "Janice  T. " 
+        puts placemark
+        witness = placemark['name']
         snippet = placemark['Snippet'] # "Time: 22:10:00 - Bullhead City, AZ" 
         location = snippet.split[3..snippet.length].join(" ")
+
         caordinates = placemark['Point']['coordinates'] # {"coordinates"=>"-114.53091929696,35.142340873613,0"
         created_at = placemark['description'].match(reg).to_s.to_datetime    
-        meteor = Meteor.create :title => event_name if not meteor
+        hashtag = event_name.gsub("#", "").gsub("Year:", "").gsub(" - ", "").split.join("_") 
+        hashtag = "##{hashtag}"
+         
+        unless meteor
+          #meteor = Meteor.create
+          meteor = Meteor.create :description => witness, :title => hashtag, :address => location, :subtitle => event_name
+        end
         Report.create :name => event_name, :experience => experience, :witness => witness, :meteor_id => meteor.id
       end
     end

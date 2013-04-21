@@ -25,6 +25,11 @@ Ext.define('wishmaker.view.Meteor.Form', {
 			fieldLabel: 'subtitle'
 		} , 
 		{
+			name: 'hashtag',
+			xtype: 'textfield',
+			fieldLabel: 'hashtag'
+		} , 
+		{
 			name: 'description',
 			xtype: 'htmleditor',
 			fieldLabel: 'description'
