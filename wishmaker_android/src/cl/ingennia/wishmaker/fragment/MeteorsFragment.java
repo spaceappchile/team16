@@ -32,7 +32,6 @@ public class MeteorsFragment extends SherlockListFragment {
 	public void loadAdapter() {
 		Meteor[] meteors = rest.getAllMeteors();
 		if (meteors != null && meteors.length >= 0) {
-			Log.d("WENA", "WENA");
 			startListAdapter(meteors);
 		}
 	}
@@ -41,7 +40,6 @@ public class MeteorsFragment extends SherlockListFragment {
 	public void startListAdapter(Meteor[] meteors) {
 		adapter.clear();
 		for (Meteor meteor : meteors) {
-
 			adapter.add(meteor);
 		}
 		setListAdapter(adapter);

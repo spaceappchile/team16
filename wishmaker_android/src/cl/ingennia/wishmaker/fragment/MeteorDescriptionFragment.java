@@ -21,6 +21,10 @@ public class MeteorDescriptionFragment extends SherlockFragment {
 	
 	@AfterViews
 	public void hidrateLayout(){
+		title.setText(meteorObject.getTitle());
+		subtitle.setText(meteorObject.getSubtitle());
+		hashtag.setText(meteorObject.getHashtag());
+		address.setText(meteorObject.getAddress());
 		
 	}
 

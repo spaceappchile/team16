@@ -14,6 +14,7 @@ public class Meteor extends GeoEntity<Meteor> {
 	protected Date starting;
 	protected String photo;
 	protected String subtitle;
+	protected String hashtag;
 
 	public String getTitle() {
 		return title;
@@ -70,6 +71,16 @@ public class Meteor extends GeoEntity<Meteor> {
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
 	}
+
+	public String getHashtag() {
+		return hashtag;
+	}
+
+	public void setHashtag(String hashtag) {
+		this.hashtag = hashtag;
+	}
+	
+	
 	
 	
 

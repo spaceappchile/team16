@@ -5,14 +5,17 @@
 
 package cl.ingennia.wishmaker;
 
+import java.io.Serializable;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import cl.ingennia.wishmaker.R.layout;
+import cl.ingennia.wishmaker.domain.Meteor;
 import com.googlecode.androidannotations.api.SdkVersionHelper;
 
 public final class MeteorActivity_
@@ -28,9 +31,11 @@ public final class MeteorActivity_
     }
 
     private void init_(Bundle savedInstanceState) {
+        injectExtras_();
     }
 
     private void afterSetContentView_() {
+        initLayout();
     }
 
     @Override
@@ -63,6 +68,31 @@ public final class MeteorActivity_
         return new MeteorActivity_.IntentBuilder_(context);
     }
 
+    @SuppressWarnings("unchecked")
+    private<T >T cast_(Object object) {
+        return ((T) object);
+    }
+
+    private void injectExtras_() {
+        Intent intent_ = getIntent();
+        Bundle extras_ = intent_.getExtras();
+        if (extras_!= null) {
+            if (extras_.containsKey("meteor")) {
+                try {
+                    meteor = cast_(extras_.get("meteor"));
+                } catch (ClassCastException e) {
+                    Log.e("MeteorActivity_", "Could not cast extra to expected type, the field is left to its default value", e);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void setIntent(Intent newIntent) {
+        super.setIntent(newIntent);
+        injectExtras_();
+    }
+
     public static class IntentBuilder_ {
 
         private Context context_;
@@ -92,6 +122,11 @@ public final class MeteorActivity_
             } else {
                 context_.startActivity(intent_);
             }
+        }
+
+        public MeteorActivity_.IntentBuilder_ meteor(Meteor meteor) {
+            intent_.putExtra("meteor", ((Serializable) meteor));
+            return this;
         }
 
     }
