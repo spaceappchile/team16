@@ -17,16 +17,18 @@ class Meteor < ActiveRecord::Base
   end
 
   def send_meteor
-    MobileUser.all.each do |mobile_user|
-      mobile_user.apn_devices.each do |apn_device|
-        logger.debug apn_device
-        n = APN::Notification.new
-        n.device_id = apn_device.id
-        n.alert = 'Tienes una nueva notificacion de meteorito'
-        n.save
+
+    # MobileUser.all.each do |mobile_user|
+      # mobile_user.apn_devices.each do |apn_device|
+      APN::Device.all.each do |apn_device|
+        # logger.debug apn_device
+        # APN::Notification.delete apn_device.notifications
+        # n = APN::Notification.new
+        # n.device_id = apn_device.id
+        # n.alert = 'A meteor has just passed, would you like to ask for a wish?'
+        # n.save
       end
-      APN::Notification.send_notifications
-    end
+      # APN::App.send_notifications    # end
   end
 
 end

@@ -6,8 +6,6 @@ class CreateApnDevices < ActiveRecord::Migration # :nodoc:
       t.timestamps
     end
 
-    add_index :apn_notifications, :token, :unique => true
-
   end
 
   def self.down
