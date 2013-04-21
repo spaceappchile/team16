@@ -17,6 +17,11 @@ Ext.define('wishmaker.model.Meteor', {
 		//defaultValue: ''
 	}, 
 	{
+		name: 'hashtag',
+		type: 'string'
+		//defaultValue: ''
+	}, 
+	{
 		name: 'description',
 		type: 'text'
 		//defaultValue: ''

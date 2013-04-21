@@ -23,6 +23,11 @@ Ext.define('wishmaker.view.Meteor.List', {
 			// flex: 1
 		}, 
 		{
+			header: 'Hashtag',
+			dataIndex: 'hashtag'
+			// flex: 1
+		}, 
+		{
 			header: 'Description',
 			dataIndex: 'description'
 			// flex: 1

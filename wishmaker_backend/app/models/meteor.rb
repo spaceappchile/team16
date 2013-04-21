@@ -1,6 +1,7 @@
 class Meteor < ActiveRecord::Base
+  default_scope :order => "id DESC"
   set_rgeo_factory_for_column(:the_geom, RGeo::Geographic.spherical_factory(:srid => 4326))
-  attr_accessible :address, :description, :ending, :photo, :starting, :subtitle, :the_geom, :title
+  attr_accessible :address, :description, :ending, :photo, :starting, :subtitle, :the_geom, :title, :hashtag
   has_many :wishes
   has_many :mobile_users, :through => :wishes 
 
@@ -15,9 +16,7 @@ class Meteor < ActiveRecord::Base
     Report.from_kml xml_data, id
   end
 
-
   def send_meteor
-
     MobileUser.all.each do |mobile_user|
       mobile_user.apn_devices.each do |apn_device|
         logger.debug apn_device

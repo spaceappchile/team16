@@ -12,6 +12,8 @@ public class MainActivity extends SherlockFragmentActivity {
 
 	@AfterViews
 	public void setLayout() {
+		
+		
 		Fragment MeteorsFragment_ = new MeteorsFragment_();
 		getSupportFragmentManager().beginTransaction()
 				.add(R.id.meteors, MeteorsFragment_).commit();

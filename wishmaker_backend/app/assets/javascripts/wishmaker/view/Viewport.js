@@ -11,23 +11,31 @@ Ext.define("wishmaker.view.Viewport", {
 	},
 
 	initComponent: function(){
+		var panelHeatMap = Ext.widget('panelHeatMap', {
+			region: 'center',
+			margins: '5 5 5 1',
+			flex: 2.5
+		});
+
 		var listMobileUser = Ext.widget('listMobileUser', {
 			region: 'south',
 			margins: '5 5 5 1'
 		});
 
 		var listWish = Ext.widget('listWish', {
-			region: 'north',
-			margins: '5 5 5 1'
+			region: 'east',
+			margins: '5 5 5 1',
+		    	flex: 1
 		});
 
 		var listMeteor = Ext.widget('listMeteor', {
-			region: 'center',
-		    	margins: '5 5 5 1'
+			region: 'west',
+		    	margins: '5 5 5 1',
+		    	flex: 1
 		});
 
 
-		this.items = [ listMeteor, listWish, listMobileUser];
+		this.items = [ panelHeatMap, listMeteor];
 
 
 		/*

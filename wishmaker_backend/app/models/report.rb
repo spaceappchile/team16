@@ -1,6 +1,6 @@
 class Report < ActiveRecord::Base
   belongs_to :meteor
-  attr_accessible :experience, :location, :name, :the_geom, :witness, :meteor_id
+  attr_accessible :experience, :location, :name, :the_geom, :witness, :meteor_id, :hashtag
 
   def self.from_kml kml, meteor_id
     hash = Hash.from_xml kml
@@ -29,7 +29,10 @@ class Report < ActiveRecord::Base
         location = snippet.split[3..snippet.length].join(" ")
         caordinates = placemark['Point']['coordinates'] # {"coordinates"=>"-114.53091929696,35.142340873613,0"
         created_at = placemark['description'].match(reg).to_s.to_datetime    
-        meteor = Meteor.create :title => event_name if not meteor
+        hashtag = event_name.gsub("#", "").gsub("Year:", "").gsub(" - ", "").split.join("_") 
+        hashtag = "##{hastag}"
+         
+        meteor = Meteor.create :description => witness, :title => hashtag, :address => location, :subtitle => event_name, :hashtag => hashtag if not meteor
         Report.create :name => event_name, :experience => experience, :witness => witness, :meteor_id => meteor.id
       end
     end
