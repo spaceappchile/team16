@@ -88,11 +88,21 @@ Ext.define('wishmaker.view.Meteor.List', {
 				text: 'Edit'
 			}
 			]
-		}];
+		},
+		     	{
+				xtype: 'pagingtoolbar',
+				dock: 'bottom',
+				store: this.getStore(),
+				displayInfo: true
+			}
+		
+		];
 
+		/*
 		setInterval(function(){
 			Ext.StoreManager.get("Meteors").load();
-		}, 5000);	
+		}, 10000);	
+		*/
 
 		this.callParent(arguments);
 	}  

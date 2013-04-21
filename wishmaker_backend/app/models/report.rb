@@ -16,6 +16,8 @@ class Report < ActiveRecord::Base
       folder = Array.new [folder]
     end 
 
+    factory = Meteor.rgeo_factory_for_column :the_geom
+
     folder.each do |folder|
 
       experience = folder['name'].match(/\d{1,}/).to_s.to_i
@@ -30,7 +32,11 @@ class Report < ActiveRecord::Base
         snippet = placemark['Snippet'] # "Time: 22:10:00 - Bullhead City, AZ" 
         location = snippet.split[3..snippet.length].join(" ")
 
-        caordinates = placemark['Point']['coordinates'] # {"coordinates"=>"-114.53091929696,35.142340873613,0"
+        coordinates = placemark['Point']['coordinates'] # {"coordinates"=>"-114.53091929696,35.142340873613,0"
+        puts coordinates
+        x = coordinates.split(",")[0]
+        y = coordinates.split(",")[1]
+
         created_at = placemark['description'].match(reg).to_s.to_datetime    
         hashtag = event_name.gsub("#", "").gsub("Year:", "").gsub(" - ", "").split.join("_") 
         hashtag = "##{hashtag}"
@@ -39,7 +45,9 @@ class Report < ActiveRecord::Base
           #meteor = Meteor.create
           meteor = Meteor.create :description => witness, :title => hashtag, :address => location, :subtitle => event_name
         end
-        Report.create :name => event_name, :experience => experience, :witness => witness, :meteor_id => meteor.id
+        the_geom = factory.point(x, y)
+        puts the_geom
+        Report.create :name => event_name, :experience => experience, :witness => witness, :meteor_id => meteor.id, :the_geom => the_geom
       end
     end
   end

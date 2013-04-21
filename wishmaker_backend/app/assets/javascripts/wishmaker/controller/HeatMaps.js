@@ -91,6 +91,42 @@ Ext.define('wishmaker.controller.HeatMaps', {
 			osm: mapnik
 		});
 
+		var wmsReports = new OpenLayers.Layer.WMS(
+  			"Reports","/geoserver/wms/wishmaker",
+  			{
+  				layers:'reports',
+  				transparent: true,
+				format: 'image/png'
+  			},{
+				singleTile: true,
+				ratio: 2,
+  			 	isBaseLayer: false,
+				yx : {'EPSG:900913' : true}
+
+			}
+  		);
+
+		var wmsReportsHeatmap = new OpenLayers.Layer.WMS(
+  			"Heatmap","/geoserver/wms/wishmaker",
+  			{
+  				layers:'reports_heatmap',
+  				transparent: true,
+				format: 'image/png'
+  			},{
+				singleTile: true,
+				ratio: 2,
+  			 	isBaseLayer: false,
+				yx : {'EPSG:900913' : true}
+
+			}
+  		);
+		
+		wishmaker.model.HeatMap.addLayers({
+			reports: wmsReports,
+			reportsHeatmap: wmsReportsHeatmap
+		});
+		
+
 
 		// Navigation Controls
 		var layerSwitcher = new OpenLayers.Control.LayerSwitcher();

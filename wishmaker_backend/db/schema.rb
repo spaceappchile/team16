@@ -141,9 +141,9 @@ ActiveRecord::Schema.define(:version => 20130420234719) do
     t.string   "location"
     t.string   "witness"
     t.integer  "meteor_id"
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
-    t.spatial  "the_geom",   :limit => {:srid=>-1, :type=>"point"}
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.spatial  "the_geom",   :limit => {:srid=>4326, :type=>"point"}
   end
 
   add_index "reports", ["meteor_id"], :name => "index_reports_on_meteor_id"
