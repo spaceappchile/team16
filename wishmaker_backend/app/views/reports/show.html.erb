@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @report.name %>
+</p>
+
+<p>
+  <b>The geom:</b>
+  <%= @report.the_geom %>
+</p>
+
+<p>
+  <b>Experience:</b>
+  <%= @report.experience %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @report.location %>
+</p>
+
+<p>
+  <b>Witness:</b>
+  <%= @report.witness %>
+</p>
+
+<p>
+  <b>Meteor:</b>
+  <%= @report.meteor %>
+</p>
+
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>

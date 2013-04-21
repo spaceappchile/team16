@@ -1,0 +1,41 @@
+<%= form_for(@report) do |f| %>
+  <% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :the_geom %><br />
+    <%= f.text_field :the_geom %>
+  </div>
+  <div class="field">
+    <%= f.label :experience %><br />
+    <%= f.number_field :experience %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :witness %><br />
+    <%= f.text_field :witness %>
+  </div>
+  <div class="field">
+    <%= f.label :meteor %><br />
+    <%= f.text_field :meteor %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

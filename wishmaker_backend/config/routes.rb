@@ -1,4 +1,7 @@
 WishmakerBackend::Application.routes.draw do
+  resources :reports
+
+
   resources :gcm_devices
 
 
