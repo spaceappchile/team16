@@ -1,6 +1,6 @@
 Catch a Meteor Tracker
 
-
+# WishMaker
 
 WishMaker is an application to explore different meteor sightings' and help you 'make a wish' right on your mobile phone.
 
