@@ -2,11 +2,15 @@ class MeteorsController < ApplicationController
   # GET /meteors
   # GET /meteors.json
   def index
+
+    begin
     start = Integer params[:start]
     page = Integer params[:page]
     limit = Integer params[:limit]
     @meteors = Meteor.all[start..page*limit]
-	
+    rescue
+    @meteors = Meteor.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @meteors }
