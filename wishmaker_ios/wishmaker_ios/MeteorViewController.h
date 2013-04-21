@@ -11,6 +11,7 @@
 @interface MeteorViewController : UIViewController
 
 @property (nonatomic, strong) Meteor *meteor;
+@property int index;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
 @property (weak, nonatomic) IBOutlet UITextView *description;
 @property (weak, nonatomic) IBOutlet UILabel *subtitle;

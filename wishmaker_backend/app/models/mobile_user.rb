@@ -4,12 +4,4 @@ class MobileUser < ActiveRecord::Base
   has_many :wishes
   has_many :meteors, :through => :wishes
   attr_accessible :username, :password, :birthday
-
-  before_save :check_for_meteorites
-
-
-  def check_for_meteorites
-    # Check for meteorites
-  end
-
 end

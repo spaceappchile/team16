@@ -34,6 +34,11 @@
     self.title = self.meteor.title;
     self.subtitle.text = [self stringFromDate:self.meteor.created_at];
     self.description.text = self.meteor.description;
+    NSString *imagename = [NSString stringWithFormat:@"big%i.jpg", self.index+1];
+    self.photo.image = [UIImage imageNamed:imagename];
+
+
+    
 	// Do any additional setup after loading the view.
 }
 

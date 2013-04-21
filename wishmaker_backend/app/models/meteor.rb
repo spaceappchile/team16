@@ -4,7 +4,7 @@ class Meteor < ActiveRecord::Base
   has_many :wishes
   has_many :mobile_users, :through => :wishes 
 
-  before_save :send_meteor
+  before_create :send_meteor
 
   def self.get_new_event 
     year = Time.now.year
@@ -17,8 +17,8 @@ class Meteor < ActiveRecord::Base
 
 
   def send_meteor
+
     MobileUser.all.each do |mobile_user|
-      # mobile_user.apn_devices.each do |apn_devices|
       mobile_user.apn_devices.each do |apn_device|
         logger.debug apn_device
         n = APN::Notification.new
@@ -27,10 +27,6 @@ class Meteor < ActiveRecord::Base
         n.save
       end
       APN::Notification.send_notifications
-
-      mobile_user.gcm_devices.each do |gcm_devices|
-        # Do something with gcm_devices
-      end
     end
   end
 

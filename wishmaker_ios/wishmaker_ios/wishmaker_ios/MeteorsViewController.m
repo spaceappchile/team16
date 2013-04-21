@@ -100,11 +100,11 @@
     }
     
     // Configure the cell...
-    int photonumber = indexPath.row % 3 +1;
+    int photonumber = indexPath.row % 6+1;
     NSString *imagename = [NSString stringWithFormat:@"%i.jpg", photonumber];
     cell.image.image = [UIImage imageNamed:imagename];
-    cell.image.layer.cornerRadius = 10;
-    cell.image.clipsToBounds = YES;
+//    cell.image.layer.cornerRadius = 10;
+//    cell.image.clipsToBounds = YES;
     
     cell.backgroundColor = [UIColor whiteColor];
     cell.title.text = [[self.meteors objectAtIndex:indexPath.row] title];
@@ -133,6 +133,7 @@
     MeteorViewController *detailViewController = segue.destinationViewController;
     NSUInteger selectedRow =  self.tableView.indexPathForSelectedRow.row;
     detailViewController.meteor = [self.meteors objectAtIndex:selectedRow];
+    detailViewController.index = selectedRow;
 }
 /*
 // Override to support conditional editing of the table view.

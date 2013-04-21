@@ -18,4 +18,6 @@
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
 
++(NSDictionary *) mapping;
+
 @end

@@ -11,19 +11,19 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="106" sectionHeaderHeight="22" sectionFooterHeight="22" id="fgG-0e-Yvo">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="106" id="mMd-PA-FWN" customClass="MeteorCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="106" id="mMd-PA-FWN" customClass="MeteorCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVA-HQ-xLL">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TVA-HQ-xLL">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="00D-Za-bzW"/>
-                                                <constraint firstAttribute="width" constant="100" id="eZ7-ki-8ME"/>
+                                                <constraint firstAttribute="height" constant="105" id="DZh-JX-7XY"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fny-de-PSO">
@@ -32,7 +32,7 @@
                                                 <constraint firstAttribute="width" constant="177" id="9Tn-fl-gm4"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbz-Nc-LEF">
@@ -40,7 +40,7 @@
                                                 <constraint firstAttribute="height" constant="30" id="t3s-Ub-W1h"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvl-hz-qoT">
@@ -48,7 +48,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="dvj-qR-NHt"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-LightOblique" family="Helvetica" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
@@ -59,12 +59,13 @@
                                     <constraint firstItem="Fny-de-PSO" firstAttribute="leading" secondItem="mMd-PA-FWN" secondAttribute="leading" constant="113" id="3mR-yj-QD1"/>
                                     <constraint firstItem="tbz-Nc-LEF" firstAttribute="trailing" secondItem="Fny-de-PSO" secondAttribute="trailing" type="default" id="7Ec-BC-EnF"/>
                                     <constraint firstItem="tbz-Nc-LEF" firstAttribute="leading" secondItem="uvl-hz-qoT" secondAttribute="leading" type="default" id="CM6-JN-c8P"/>
-                                    <constraint firstItem="TVA-HQ-xLL" firstAttribute="leading" secondItem="mMd-PA-FWN" secondAttribute="leading" constant="6" id="U5h-YW-aB5"/>
                                     <constraint firstItem="tbz-Nc-LEF" firstAttribute="top" secondItem="mMd-PA-FWN" secondAttribute="top" constant="35" id="VfG-ql-hjt"/>
-                                    <constraint firstItem="TVA-HQ-xLL" firstAttribute="centerY" secondItem="mMd-PA-FWN" secondAttribute="centerY" type="default" id="fdK-P0-YUd"/>
+                                    <constraint firstItem="TVA-HQ-xLL" firstAttribute="top" secondItem="mMd-PA-FWN" secondAttribute="top" type="default" id="XyC-vN-e5U"/>
                                     <constraint firstAttribute="bottom" secondItem="uvl-hz-qoT" secondAttribute="bottom" constant="20" type="default" id="m2e-HS-cBT"/>
+                                    <constraint firstItem="TVA-HQ-xLL" firstAttribute="leading" secondItem="mMd-PA-FWN" secondAttribute="leading" type="default" id="mNj-H4-pAM"/>
                                     <constraint firstItem="uvl-hz-qoT" firstAttribute="trailing" secondItem="tbz-Nc-LEF" secondAttribute="trailing" type="default" id="nMR-7K-CCu"/>
                                     <constraint firstItem="Fny-de-PSO" firstAttribute="leading" secondItem="tbz-Nc-LEF" secondAttribute="leading" type="default" id="ohm-DS-Ybx"/>
+                                    <constraint firstItem="TVA-HQ-xLL" firstAttribute="trailing" secondItem="mMd-PA-FWN" secondAttribute="trailing" type="default" id="zR9-Ko-Ag8"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="date" destination="uvl-hz-qoT" id="hga-4e-sab"/>
@@ -94,13 +95,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="1big.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="D6a-P7-zLe"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="big1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="D6a-P7-zLe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="509" id="z8S-Lu-4XC"/>
+                                </constraints>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBQ-zB-l6X">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="114" id="3w0-3w-Oj4"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -122,23 +127,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAZ-DI-AJa">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="rHn-q5-OCD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uBQ-zB-l6X" firstAttribute="top" secondItem="LRA-gK-Jbz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="51T-WT-QaU"/>
-                            <constraint firstItem="cAZ-DI-AJa" firstAttribute="trailing" secondItem="zBs-FS-FeX" secondAttribute="trailing" type="default" id="9OM-us-0R3"/>
+                            <constraint firstItem="cAZ-DI-AJa" firstAttribute="leading" secondItem="zBs-FS-FeX" secondAttribute="leading" constant="-1" id="AoS-Dv-5Xx"/>
                             <constraint firstItem="uBQ-zB-l6X" firstAttribute="trailing" secondItem="zBs-FS-FeX" secondAttribute="trailing" type="default" id="IlV-YC-KpR"/>
+                            <constraint firstItem="D6a-P7-zLe" firstAttribute="bottom" secondItem="zBs-FS-FeX" secondAttribute="bottom" type="default" id="IvQ-cs-uiV"/>
+                            <constraint firstItem="uBQ-zB-l6X" firstAttribute="top" secondItem="zBs-FS-FeX" secondAttribute="top" constant="213" id="J9s-Ec-kxa"/>
                             <constraint firstItem="LRA-gK-Jbz" firstAttribute="centerX" secondItem="cAZ-DI-AJa" secondAttribute="centerX" type="default" id="MFY-7a-Zh4"/>
                             <constraint firstItem="uBQ-zB-l6X" firstAttribute="leading" secondItem="zBs-FS-FeX" secondAttribute="leading" type="default" id="Qhu-Jw-Nfs"/>
                             <constraint firstItem="D6a-P7-zLe" firstAttribute="leading" secondItem="zBs-FS-FeX" secondAttribute="leading" type="default" id="cpa-gB-NsY"/>
-                            <constraint firstItem="cAZ-DI-AJa" firstAttribute="bottom" secondItem="D6a-P7-zLe" secondAttribute="bottom" type="default" id="gkQ-KD-DRL"/>
-                            <constraint firstAttribute="bottom" secondItem="uBQ-zB-l6X" secondAttribute="bottom" constant="64" id="kRV-Dz-nQ0"/>
-                            <constraint firstItem="cAZ-DI-AJa" firstAttribute="leading" secondItem="zBs-FS-FeX" secondAttribute="leading" type="default" id="oJX-yb-CAi"/>
-                            <constraint firstItem="D6a-P7-zLe" firstAttribute="top" secondItem="zBs-FS-FeX" secondAttribute="top" constant="-5" id="sh2-b6-UoO"/>
+                            <constraint firstItem="cAZ-DI-AJa" firstAttribute="top" secondItem="zBs-FS-FeX" secondAttribute="top" constant="8" id="dKf-k8-Jcw"/>
+                            <constraint firstItem="LRA-gK-Jbz" firstAttribute="top" secondItem="zBs-FS-FeX" secondAttribute="top" constant="89" id="en6-bO-YwY"/>
+                            <constraint firstItem="D6a-P7-zLe" firstAttribute="trailing" secondItem="zBs-FS-FeX" secondAttribute="trailing" type="default" id="yWW-jv-FJs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Kar-Ji-tV1"/>
@@ -160,7 +168,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pES-5c-ZmO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.95686274770000002" green="0.78127526311989626" blue="0.62412382159133339" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.13249030917415391" green="0.0" blue="0.39663938492063489" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -173,33 +181,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1big.jpg" width="320" height="220"/>
+        <image name="1.jpg" width="640" height="250"/>
+        <image name="big1.jpg" width="640" height="960"/>
     </resources>
-    <classes>
-        <class className="MeteorCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeteorCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="subtitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MeteorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeteorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="description" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="photo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="subtitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MeteorsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeteorsViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
